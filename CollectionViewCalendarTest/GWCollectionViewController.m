@@ -281,9 +281,10 @@
     GWCollectionViewHeader *header = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header" forIndexPath:indexPath];
     header.headerLabel.textColor = [UIColor whiteColor];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateStyle:NSDateFormatterMediumStyle];
+    [df setDateFormat:@"MMM yyyy"];
     header.headerLabel.text = [df stringFromDate:[self dateForFirstDayInSection:indexPath.section]];
     header.backgroundColor = [UIColor purpleColor];
+    self.title = [df stringFromDate:[self dateForFirstDayInSection:indexPath.section]];
     return header;
     
 }
